@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Course Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <main class="page">
+      <div class="eyebrow">Learning path finder</div>
+      <h1>What would you like to learn?</h1>
+      <p class="intro">Describe a goal or a task you want to get better at. We will suggest a learning track to explore.</p>
+
+      <form method="post" class="advisor-form">
+        <label for="message">Your learning goal</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          maxlength="{{ max_message_length }}"
+          placeholder="For example: I want to automate repetitive office tasks."
+          required
+        >{{ message }}</textarea>
+        <div class="form-footer">
+          <span>Up to {{ max_message_length }} characters</span>
+          <button type="submit">Find a track</button>
+        </div>
+      </form>
+
+      {% if error %}
+        <p class="error" role="alert">{{ error }}</p>
+      {% endif %}
+
+      {% if result %}
+        <section class="result" aria-live="polite" aria-labelledby="result-heading">
+          <p class="result-label">Suggested learning track</p>
+          <h2 id="result-heading">{{ result.title }}</h2>
+          <p>{{ result.description }}</p>
+        </section>
+      {% endif %}
+
+      <p class="note">These are example learning tracks for this practice project, not official course recommendations.</p>
+    </main>
+  </body>
+</html>
