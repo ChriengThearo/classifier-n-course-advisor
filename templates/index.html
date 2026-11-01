@@ -34,6 +34,7 @@
 
       {% if result %}
         <section class="result" aria-live="polite" aria-labelledby="result-heading">
+          <p class="result-response">{{ result.response }}</p>
           <p class="result-label">Suggested learning track</p>
           <h2 id="result-heading">{{ result.title }}</h2>
           <p>{{ result.description }}</p>

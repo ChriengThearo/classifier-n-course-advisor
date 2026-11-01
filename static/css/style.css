@@ -84,6 +84,7 @@ button:hover { background: #105d3c; }
   background: #eef9f1;
 }
 
+.result-response { margin-top: 0; font-size: 1.1rem; font-weight: 600; }
 .result p:last-child { margin-bottom: 0; }
 .note { margin: 28px 0 0; color: #64766c; font-size: 0.85rem; }
 
